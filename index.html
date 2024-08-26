@@ -861,7 +861,42 @@
   </section>
 
   <!-- End Contact Section -->
+<style>.typing {
+  position: relative;
+  display: inline-block;
+}
 
+.glitch {
+  animation: glitchEffect 0.3s linear;
+}
+
+@keyframes glitchEffect {
+  0% {
+    text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+    transform: translate(0);
+  }
+  20% {
+    text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff;
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+    transform: translate(5px, -5px);
+  }
+  60% {
+    text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff;
+    transform: translate(-5px, 5px);
+  }
+  80% {
+    text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+    transform: translate(5px, -5px);
+  }
+  100% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+}
+</style>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -873,14 +908,41 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script type="text/javascript">
-    var typed = new Typed('.typing',{
-      strings: ["AI Enthusiast", "Data Analyst", "Coder", "Web Developer"],
-      loop: true,
-      typeSpeed: 65,
-      backSpeed: 65
-    });
-  </script>
+  <!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Typed.js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- Glitch sound -->
+<audio id="glitchSound" src="your-glitch-sound-file.mp3"></audio>
+
+<script type="text/javascript">
+  var typed = new Typed('.typing', {
+    strings: ["AI Enthusiast", "Data Analyst", "Coder", "Web Developer"],
+    loop: true,
+    typeSpeed: 65,
+    backSpeed: 65,
+    onStringTyped: function (arrayPos, self) {
+      playGlitchSound();
+      applyGlitchEffect();
+    }
+  });
+
+  function playGlitchSound() {
+    var audio = document.getElementById("glitchSound");
+    audio.play();
+  }
+
+  function applyGlitchEffect() {
+    var textElement = document.querySelector('.typing');
+    $(textElement).addClass('glitch');
+    setTimeout(function () {
+      $(textElement).removeClass('glitch');
+    }, 300); // Adjust the timeout for the duration of the glitch effect
+  }
+</script>
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
