@@ -123,7 +123,9 @@
 
       <div class="row">
         <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/profile.jpg" class="img-fluid" alt="">
+          <div class="image-container">
+            <img src="assets/img/profile.jpg" class="img-fluid" alt="Profile Image">
+        </div>
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <p class="typing-effect">
@@ -154,6 +156,55 @@
       </div>
 
     </div><!-- End About Me -->
+
+    <style>.image-container {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      animation: slideIn 3s forwards, glitchEffect 1s steps(5, end) 1s;
+  }
+  
+  .img-fluid {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  @keyframes slideIn {
+      0% {
+          width: 0;
+          height: 0;
+      }
+      100% {
+          width: 300px; /* Adjust based on your image size */
+          height: 300px; /* Adjust based on your image size */
+      }
+  }
+  
+  @keyframes glitchEffect {
+      0%, 20%, 40%, 60%, 80%, 100% {
+          clip: rect(0, 9999px, 0, 0);
+      }
+      10% {
+          clip: rect(20px, 9999px, 50px, 0);
+          transform: skew(0.2deg);
+      }
+      30% {
+          clip: rect(60px, 9999px, 80px, 0);
+          transform: skew(0.4deg);
+      }
+      50% {
+          clip: rect(90px, 9999px, 120px, 0);
+          transform: skew(0.3deg);
+      }
+      70% {
+          clip: rect(10px, 9999px, 40px, 0);
+          transform: skew(0.2deg);
+      }
+      90% {
+          clip: rect(50px, 9999px, 70px, 0);
+          transform: skew(0.1deg);
+      }
+  }</style>
 
     <!-- ======= Interests ======= -->
     <div class="interests container">
@@ -914,6 +965,15 @@
 >>>>>>> a59efddc4b8d602d17ec23286744cb5479b43476
   <!-- Glitch sound -->
 <audio id="glitchSound" src="assets/audio/glitch-sound-111588 (1).mp3"></audio>
+<script>
+   function playSoundOnce() {
+            var audio = document.getElementById('glitchSound');
+            audio.play();
+        }
+
+        // Event listener to play the sound when the page loads
+        window.addEventListener('load', playSoundOnce);
+</script>
 
 <script type="text/javascript">
   var typed = new Typed('.typing', {
