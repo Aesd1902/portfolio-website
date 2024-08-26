@@ -129,9 +129,31 @@
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <p class="typing-effect">
-            Hello! 😊 I'm a passionate AI enthusiast ,Data Analyst and web developer.
+          Hello!😊 I'm a passionate AI enthusiast ,Data Analyst and web developer.
         </p>
-        <p>with a keen interest in leveraging technology to solve real-world problems. <br>🌍 With a background in machine learning, web development, and cloud computing, I specialize in creating innovative solutions that blend artificial intelligence and software engineering. <br>💡
+       
+        </style>
+        <script>document.addEventListener('DOMContentLoaded', function() {
+          const text = "Hello! 😊 I'm a passionate AI enthusiast, Data Analyst, and web developer.";
+          const typingEffectElement = document.getElementById('typingEffect');
+          const typingSound = document.getElementById('typingSound');
+          let index = 0;
+      
+          function type() {
+              if (index < text.length) {
+                  typingEffectElement.textContent += text.charAt(index);
+                  index++;
+                  typingSound.play();
+                  typingSound.currentTime = 0;  // Reset sound to the start
+                  setTimeout(type, 100);  // Adjust typing speed here (in milliseconds)
+              } else {
+                  typingSound.pause();  // Stop the typing sound when typing is complete
+              }
+          }
+      
+          typingSound.addEventListener('canplaythrough', type);  // Start typing after the sound can play
+      });
+      </script>        <p>with a keen interest in leveraging technology to solve real-world problems. <br>🌍 With a background in machine learning, web development, and cloud computing, I specialize in creating innovative solutions that blend artificial intelligence and software engineering. <br>💡
     
           I have hands-on experience working with various technologies, including Node.js, React, MongoDB, and AWS. <br>💻 My journey in AI has led me to focus on deep learning projects, particularly in the area of deepfake detection. <br> 🕵️‍♂️ I am always eager to learn, adapt, and apply my skills to new challenges. 🚀
   
@@ -964,7 +986,7 @@
   
 >>>>>>> a59efddc4b8d602d17ec23286744cb5479b43476
   <!-- Glitch sound -->
-  <audio id="glitchSound" src="assets/audio/glitch-sound-111588 (1).mp3"></audio>
+  <audio id="glitchSound" src="#"></audio>
 
   <script>
     // Function to play the sound
