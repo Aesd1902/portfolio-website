@@ -964,42 +964,49 @@
   
 >>>>>>> a59efddc4b8d602d17ec23286744cb5479b43476
   <!-- Glitch sound -->
-<audio id="glitchSound" src="assets/audio/glitch-sound-111588 (1).mp3"></audio>
-<script>
-   function playSoundOnce() {
-            var audio = document.getElementById('glitchSound');
-            audio.play();
-        }
+  <audio id="glitchSound" src="assets/audio/glitch-sound-111588 (1).mp3"></audio>
 
-        // Event listener to play the sound when the page loads
-        window.addEventListener('load', playSoundOnce);
-</script>
-
-<script type="text/javascript">
-  var typed = new Typed('.typing', {
-    strings: ["AI Enthusiast", "Data Analyst", "Coder", "Web Developer"],
-    loop: true,
-    typeSpeed: 65,
-    backSpeed: 65,
-    onStringTyped: function (arrayPos, self) {
-      playGlitchSound();
-      applyGlitchEffect();
+  <script>
+    // Function to play the sound
+    function playSoundOnce() {
+      var audio = document.getElementById('glitchSound');
+      audio.play();
     }
-  });
-
-  function playGlitchSound() {
-    var audio = document.getElementById("glitchSound");
-    audio.play();
-  }
-
-  function applyGlitchEffect() {
-    var textElement = document.querySelector('.typing');
-    $(textElement).addClass('glitch');
-    setTimeout(function () {
-      $(textElement).removeClass('glitch');
-    }, 300); // Adjust the timeout for the duration of the glitch effect
-  }
-</script>
+  
+    // Event listener to play the sound when the page loads
+    window.addEventListener('load', playSoundOnce);
+  
+    // Function to play the glitch sound
+    function playGlitchSound() {
+      var audio = document.getElementById("glitchSound");
+      audio.currentTime = 0; // Resetting to the start
+      audio.play();
+    }
+  
+    // Function to apply the glitch effect
+    function applyGlitchEffect() {
+      var textElement = document.querySelector('.typing');
+      textElement.classList.add('glitch');
+      setTimeout(function () {
+        textElement.classList.remove('glitch');
+      }, 300); // Adjust the timeout for the duration of the glitch effect
+    }
+  
+    // Initialize Typed.js
+    var typed = new Typed('.typing', {
+      strings: ["AI Enthusiast", "Data Analyst", "Coder", "Web Developer"],
+      loop: true,
+      typeSpeed: 65,
+      backSpeed: 65,
+      onStringTyped: function (arrayPos, self) {
+        if (self.strings[arrayPos] === "Coder" || self.strings[arrayPos] === "Web Developer" || self.strings[arrayPos] === "AI Enthusiast" || self.strings[arrayPos] === "Data Analyst") {
+          playGlitchSound();
+          applyGlitchEffect();
+        }
+      }
+    });
+  </script>
+  
 
 
   <!-- Template Main JS File -->
